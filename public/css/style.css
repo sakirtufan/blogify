@@ -115,15 +115,15 @@ section {
 }
 
 .navbar-brand:hover {
-	color: #FD8A10!important;
+	color: #4a3933!important;
 }
 
 #mainNav {
-	background-color: transparent;
+	background-color: #FD8A10;
 }
 
 nav.navbar-container {
-    padding: 20px 0 20px 0;
+    padding: 10px 0 10px 0;
 }
 
 .navbar-container.shrink {
@@ -151,7 +151,7 @@ nav.navbar-container {
 
 #mainNav .navbar-nav .nav-item .nav-link.active,
 #mainNav .navbar-nav .nav-item .nav-link:hover {
-	color: #FD8A10;
+	color: #4a3933;    
 }
 
 nav.shrink {
@@ -164,7 +164,7 @@ nav.shrink {
 .navbar.fixed-top.shrink,
 .navbar-brand,
 .navbar-container{
-    transition: 0.8s;
+    transition: 1s;
     -webkit-transition:  0.8s;
 }
 
@@ -929,7 +929,6 @@ span.writer {
 .blog-content .fas {
     color: #FD8A10;
 }
-
 
 
 
