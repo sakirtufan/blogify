@@ -1,17 +1,11 @@
 const express = require("express");
-const path = require("path");
 const exphbs = require("express-handlebars");
+const connectDatabase = require("./helpers/database/connectDatabase")
+const routers = require("./routes/main")
 require("dotenv").config();
-const mongoose = require("mongoose");
-const main = require("./routes/main")
 
 const port = process.env.PORT;
 const hostname = process.env.HOSTNAME;
-
-mongoose.connect(`mongodb://${hostname}/nodeblog`, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
 
 const app = express();
 
@@ -20,10 +14,14 @@ app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
 
 app.use(express.static("public"));
-// middleware routes
-app.use('/',main)
+
+// Routers Middleware
+app.use('/', routers)
+
+//MongoDb Connection
+connectDatabase();
 
 
 app.listen(port, hostname, () => {
-  console.log(`App listening at http://${hostname}:${port}/`);
+  console.log(`App started on http://${hostname}:${port}/`);
 });
