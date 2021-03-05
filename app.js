@@ -1,48 +1,29 @@
-const express = require("express")
-const path = require("path")
-const exphbs  = require('express-handlebars')
-require('dotenv').config()
-
-const app = express();
-
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
+const express = require("express");
+const path = require("path");
+const exphbs = require("express-handlebars");
+require("dotenv").config();
+const mongoose = require("mongoose");
+const main = require("./routes/main")
 
 const port = process.env.PORT;
 const hostname = process.env.HOSTNAME;
 
-app.use(express.static('public'));
+mongoose.connect(`mongodb://${hostname}/nodeblog`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-app.get('/', (req, res) => {
-  res.render('site/index');
-})
+const app = express();
 
-app.get('/about', (req, res) => {
-  res.render('site/about');
-})
+// handlebars
+app.engine("handlebars", exphbs());
+app.set("view engine", "handlebars");
 
-app.get('/blog', (req, res) => {
-  res.render('site/blog');
-})
-
-app.get('/contact', (req, res) => {
-  res.render('site/contact');
-})
-
-app.get('/login', (req, res) => {
-  res.render('site/login');
-})
-
-app.get('/register', (req, res) => {
-  res.render('site/register');
-})
+app.use(express.static("public"));
+// middleware routes
+app.use('/',main)
 
 
-
-
-
-
-
-app.listen(port,hostname, () => {
+app.listen(port, hostname, () => {
   console.log(`App listening at http://${hostname}:${port}/`);
 });
