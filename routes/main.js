@@ -26,4 +26,17 @@ router.get("/register", (req, res) => {
   res.render("site/register");
 });
 
+router.get("/posts/new", (req, res) => {
+  res.render("site/addPost")
+})
+
+router.post("/posts/test", (req, res) => {
+  res.send("Test OK")
+})
+
+
+
+
+
+
 module.exports = router
