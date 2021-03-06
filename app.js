@@ -7,6 +7,7 @@ const posts = require("./routes/posts")
 require("dotenv").config();
 const bodyParser = require('body-parser')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
+const fileUpload = require('express-fileupload')
 
 const port = process.env.PORT;
 const hostname = process.env.HOSTNAME;
@@ -15,11 +16,18 @@ const app = express();
 
 app.use(express.static("public"));
 
+//MongoDb Connection
+connectDatabase();
+
+// fileUpload
+app.use(fileUpload());
+
 // handlebars
 app.engine("handlebars", exphbs({
   handlebars: allowInsecurePrototypeAccess(Handlebars)
 }), exphbs());
 app.set("view engine", "handlebars");
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -31,8 +39,6 @@ app.use(bodyParser.json())
 app.use('/', main)
 app.use('/posts', posts)
 
-//MongoDb Connection
-connectDatabase();
 
 
 app.listen(port, hostname, () => {
