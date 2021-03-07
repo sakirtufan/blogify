@@ -1,7 +1,6 @@
-const express = require("express")
-const router = express.Router()
-const Post = require("../models/Post")
-
+const express = require("express");
+const router = express.Router();
+const Post = require("../models/Post");
 
 router.get("/", (req, res) => {
   res.render("site/index");
@@ -13,9 +12,8 @@ router.get("/about", (req, res) => {
 
 router.get("/blog", (req, res) => {
   Post.find({}).then((posts) => {
-    res.render("site/blog", {posts:posts});
-  })
-  
+    res.render("site/blog", { posts: posts });
+  });
 });
 
 router.get("/contact", (req, res) => {
@@ -26,11 +24,4 @@ router.get("/login", (req, res) => {
   res.render("site/login");
 });
 
-
-
-
-
-
-
-
-module.exports = router
+module.exports = router;
