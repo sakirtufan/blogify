@@ -1,5 +1,4 @@
 
-
 /*----------------
 GENERAL SETTINGS
 -----------------*/
@@ -112,15 +111,15 @@ section {
 }
 
 .navbar-brand:hover {
-	color: #4a3933!important;
+	color: #FD8A10!important;
 }
 
 #mainNav {
-	background-color: #FD8A10;
+	background-color: transparent;
 }
 
 nav.navbar-container {
-    padding: 10px 0 10px 0;
+    padding: 20px 0 20px 0;
 }
 
 .navbar-container.shrink {
@@ -148,7 +147,7 @@ nav.navbar-container {
 
 #mainNav .navbar-nav .nav-item .nav-link.active,
 #mainNav .navbar-nav .nav-item .nav-link:hover {
-	color: #4a3933;    
+	color: #FD8A10;
 }
 
 nav.shrink {
@@ -161,9 +160,11 @@ nav.shrink {
 .navbar.fixed-top.shrink,
 .navbar-brand,
 .navbar-container{
-    transition: 1s;
+    transition: 0.8s;
     -webkit-transition:  0.8s;
 }
+
+
 
 /*--------------------------------------------------------------
 # Hero Section

@@ -19,14 +19,12 @@ router.get("/login", (req, res) => {
 
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
-  // if(!validateUserInput(email, password)){
-  //   return next(new Error("Please check your inputs"))
-  // }
 
   User.findOne({ email }, (err, user) => {
     if (user) {
       if (user.password == password) {
         // USER SESSION
+        req.session.userId = user._id;
         res.redirect("/");
       } else {
         res.redirect("/users/login");
