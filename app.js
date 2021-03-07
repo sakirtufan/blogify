@@ -4,6 +4,7 @@ const exphbs = require("express-handlebars");
 const connectDatabase = require("./helpers/database/connectDatabase")
 const main = require("./routes/main")
 const posts = require("./routes/posts")
+const users = require("./routes/users")
 require("dotenv").config();
 const bodyParser = require('body-parser')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
@@ -41,6 +42,7 @@ app.use(bodyParser.json())
 // Routers Middleware
 app.use('/', main)
 app.use('/posts', posts)
+app.use('/users', users)
 
 
 

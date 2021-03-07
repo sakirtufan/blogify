@@ -23,7 +23,7 @@ router.post("/test", (req, res) => {
     post_image: `/img/postimages/${post_image.name}`,
   });
 
-  res.redirect("/");
+  res.redirect("/blog");
 });
 
 module.exports = router;
