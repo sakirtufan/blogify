@@ -8,6 +8,7 @@ require("dotenv").config();
 const bodyParser = require('body-parser')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 const fileUpload = require('express-fileupload')
+const generateDate = require('./helpers/date/generateDate').generateDate
 
 const port = process.env.PORT;
 const hostname = process.env.HOSTNAME;
@@ -24,8 +25,10 @@ app.use(fileUpload());
 
 // handlebars
 app.engine("handlebars", exphbs({
-  handlebars: allowInsecurePrototypeAccess(Handlebars)
+  handlebars: allowInsecurePrototypeAccess(Handlebars),
+  helpers: {generateDate:generateDate}
 }), exphbs());
+
 app.set("view engine", "handlebars");
 
 // parse application/x-www-form-urlencoded
