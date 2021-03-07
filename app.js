@@ -6,20 +6,35 @@ const main = require("./routes/main")
 const posts = require("./routes/posts")
 const users = require("./routes/users")
 require("dotenv").config();
+const mongoose = require("mongoose");
 const bodyParser = require('body-parser')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 const fileUpload = require('express-fileupload')
 const generateDate = require('./helpers/date/generateDate').generateDate
+const expressSession = require('express-session')
+const connectMongo = require('connect-mongo')
+
+const app = express();
+
+//MongoDb Connection
+connectDatabase();
+
+const mongoStore = connectMongo(expressSession)
+
+// session
+app.use(expressSession({
+  secret: 'keyboard-secret',
+  resave: false,
+  saveUninitialized: true,
+  store: new mongoStore({ mongooseConnection : mongoose.connection})
+}))
 
 const port = process.env.PORT;
 const hostname = process.env.HOSTNAME;
 
-const app = express();
 
 app.use(express.static("public"));
 
-//MongoDb Connection
-connectDatabase();
 
 // fileUpload
 app.use(fileUpload());
