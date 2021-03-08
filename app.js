@@ -2,9 +2,7 @@ const express = require("express");
 const Handlebars = require("handlebars");
 const exphbs = require("express-handlebars");
 const connectDatabase = require("./helpers/database/connectDatabase");
-const main = require("./routes/main");
-const posts = require("./routes/posts");
-const users = require("./routes/users");
+
 require("dotenv").config();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -82,9 +80,15 @@ app.use((req, res, next) => {
 });
 
 // Routers Middleware
+const main = require("./routes/main");
+const posts = require("./routes/posts");
+const users = require("./routes/users");
+const admin = require("./routes/admin/index");
+
 app.use("/", main);
 app.use("/posts", posts);
 app.use("/users", users);
+app.use("/admin", admin)
 
 app.listen(port, hostname, () => {
   console.log(`App started on http://${hostname}:${port}/`);
