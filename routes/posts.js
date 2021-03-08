@@ -2,13 +2,17 @@ const express = require("express");
 const router = express.Router();
 const Post = require("../models/Post");
 const path = require("path");
+const Category = require("../models/Category");
 
 router.get("/new", (req, res) => {
-  if(req.session.userId) {
-    res.render("site/addPost");
-  }else{
+  if(!req.session.userId) {
     res.redirect('/users/login')
   }
+
+  Category.find({}).sort({$natural:-1}).then((categories) => {
+    res.render("site/addPost", { categories: categories})
+  })
+  
 });
 
 router.get("/:id", (req, res) => {

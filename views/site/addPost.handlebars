@@ -6,7 +6,7 @@
 </section>
     
     <!--==========================
-    Register Section
+    Add Post Section
 ============================-->
 <section id="contact" class="md-padding">
 	<div class="container">
@@ -27,8 +27,15 @@
 								<p class="help-block text-danger"></p>
 							</div>
 							<div class="form-group">
-							<textarea class="form-control" name="content" placeholder="Your Post *" required="required" data-validation-required-message="Please enter the content."></textarea>
+								<textarea class="form-control" name="content" placeholder="Your Post *" required="required" data-validation-required-message="Please enter the content."></textarea>
 							</div>
+							<div class="form-group">
+								<select class="form-control" name="category">
+									{{#each categories}}
+										<option value="{{id}}">{{name}}</option>
+									{{/each}}
+								</select>
+							</div>							
 							<div class="form-group">
 								<input class="form-control" name="post_image" type="file" required="required" data-validation-required-message="Please enter the title.">
 								<p class="help-block text-danger"></p>
