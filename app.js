@@ -13,6 +13,7 @@ const fileUpload = require("express-fileupload");
 const generateDate = require("./helpers/date/generateDate").generateDate;
 const expressSession = require("express-session");
 const connectMongo = require("connect-mongo");
+const methodOverride = require('method-override')
 
 const app = express();
 
@@ -45,6 +46,9 @@ app.use(express.static("public"));
 
 // fileUpload
 app.use(fileUpload());
+
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'))
 
 // handlebars
 app.engine(
