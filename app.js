@@ -29,6 +29,13 @@ app.use(expressSession({
   store: new mongoStore({ mongooseConnection : mongoose.connection})
 }))
 
+// Flash Messages Middleware
+app.use((req, res, next) => {
+  res.locals.sessionFlash = req.session.sessionFlash;
+  delete req.session.sessionFlash;
+  next();
+})
+
 const port = process.env.PORT;
 const hostname = process.env.HOSTNAME;
 

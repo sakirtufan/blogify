@@ -9,7 +9,11 @@ router.get("/register", (req, res) => {
 
 router.post("/register", (req, res) => {
   User.create(req.body, (err, user) => {
-    res.redirect("/");
+    req.session.sessionFlash = {
+      type:'alert alert-info',
+      message: 'User created successfully'
+    }
+    res.redirect("/users/login");
   });
 });
 
