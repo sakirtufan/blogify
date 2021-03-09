@@ -23,7 +23,7 @@ router.post("/categories", (req, res) => {
 });
 
 router.delete("/categories/:id", (req, res) => {
-  Category.remove({ _id: req.params.id }).then(() => {
+  Category.deleteOne({ _id: req.params.id }).then(() => {
     res.redirect("/admin/categories");
   });
 });
@@ -33,6 +33,12 @@ router.get("/posts", (req, res) => {
     
       res.render("admin/posts", { posts: posts});
   
+  });
+});
+
+router.delete("/posts/:id", (req, res) => {
+  Post.deleteOne({ _id: req.params.id }).then(() => {
+    res.redirect("/admin/posts");
   });
 });
 
