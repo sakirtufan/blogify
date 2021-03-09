@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Category = require("../../models/Category");
+const Post = require("../../models/Post");
+
 
 router.get("/", (req, res) => {
   res.render("admin/index");
@@ -23,6 +25,14 @@ router.post("/categories", (req, res) => {
 router.delete("/categories/:id", (req, res) => {
   Category.remove({ _id: req.params.id }).then(() => {
     res.redirect("/admin/categories");
+  });
+});
+
+router.get("/posts", (req, res) => {
+  Post.find({}).populate({path:"category", model: Category}).sort({$natural:-1}).then((posts) => {
+    
+      res.render("admin/posts", { posts: posts});
+  
   });
 });
 
