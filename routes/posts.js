@@ -20,8 +20,9 @@ router.get("/new", (req, res) => {
 router.get("/category/:categoryId", (req, res) => {
    Post.find({ category: req.params.categoryId })
       .populate({ path: "category", model: Category })
+      .populate({ path: "author", model: User })
       .then((posts) => {
-        Category.aggregate([
+         Category.aggregate([
             {
                $lookup: {
                   from: "posts",
@@ -38,8 +39,8 @@ router.get("/category/:categoryId", (req, res) => {
                },
             },
          ]).then((categories) => {
-           res.render('site/blog',{posts: posts, categories: categories});
-         })
+            res.render("site/blog", { posts: posts, categories: categories });
+         });
       });
 });
 
