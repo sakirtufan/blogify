@@ -18,12 +18,34 @@ router.get("/new", (req, res) => {
 
 router.get("/:id", (req, res) => {
   Post.findById(req.params.id).populate({path:'author', model: User}).then((post) => {
-    Category.find({}).sort({$natural:-1}).then((categories) => {
-      Post.find({}).populate({path:'author', model: User}).sort({$natural:-1}).then((posts) => {
-
-        res.render("site/post", { post: post, categories: categories,posts: posts});
-      })
-    })
+    Category.aggregate([
+       {
+          $lookup: {
+             from: "posts",
+             localField: "_id",
+             foreignField: "category",
+             as: "posts",
+          },
+       },
+       {
+          $project: {
+             _id: 1,
+             name: 1,
+             num_of_posts: { $size: "$posts" },
+          },
+       },
+    ]).then((categories) => {
+          Post.find({})
+             .populate({ path: "author", model: User })
+             .sort({ $natural: -1 })
+             .then((posts) => {
+                res.render("site/post", {
+                   post: post,
+                   categories: categories,
+                   posts: posts,
+                });
+             });
+       });
   });
 });
 
