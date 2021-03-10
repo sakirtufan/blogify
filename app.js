@@ -2,7 +2,6 @@ const express = require("express");
 const Handlebars = require("handlebars");
 const exphbs = require("express-handlebars");
 const connectDatabase = require("./helpers/database/connectDatabase");
-
 require("dotenv").config();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -11,6 +10,7 @@ const {
 } = require("@handlebars/allow-prototype-access");
 const fileUpload = require("express-fileupload");
 const generateDate = require("./helpers/date/generateDate").generateDate;
+const limit = require("./helpers/limit").limit;
 const expressSession = require("express-session");
 const connectMongo = require("connect-mongo");
 const methodOverride = require('method-override')
@@ -50,12 +50,20 @@ app.use(fileUpload());
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'))
 
-// handlebars
+// handlebars helpers
+
+// const hbs = exphbs.create({
+//   helpers: { 
+//     generateDate:generateDate,
+//     limit: limit,
+//   }
+
+// })
 app.engine(
   "handlebars",
   exphbs({
     handlebars: allowInsecurePrototypeAccess(Handlebars),
-    helpers: { generateDate: generateDate },
+    helpers: { generateDate: generateDate, limit: limit},
   }),
   exphbs()
 );

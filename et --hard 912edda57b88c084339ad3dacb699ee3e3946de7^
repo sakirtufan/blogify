@@ -1,0 +1,145 @@
+[33mcommit 566495b2573eca3ac073cb3b88da972b8d3d2670[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Wed Mar 10 08:13:38 2021 +0100
+
+    Update Admin Link
+
+[33mcommit a353d4d60058eb6d05ce204120b82602af043b4b[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Wed Mar 10 08:11:11 2021 +0100
+
+    Revert "Update Admin Link"
+    
+    This reverts commit 912edda57b88c084339ad3dacb699ee3e3946de7.
+
+[33mcommit 912edda57b88c084339ad3dacb699ee3e3946de7[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Wed Mar 10 08:07:35 2021 +0100
+
+    Update Admin Link
+
+[33mcommit 3508fd27d7e2d88e769c016b28886d1786508598[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Wed Mar 10 08:04:02 2021 +0100
+
+    Delete And Edit Post On Admin Page
+
+[33mcommit ab414aebcab19224e9f59f8b56804c1087ce6a30[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Tue Mar 9 21:33:26 2021 +0100
+
+    Delete Post By Admin
+
+[33mcommit 0ee79e84321174ca4c4b22846795329a97249934[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Tue Mar 9 21:18:32 2021 +0100
+
+    Associate Admin Post and Category
+
+[33mcommit a54f6a1958c1ebd1eb43f21de686a63a4cc35a6d[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Tue Mar 9 05:59:41 2021 +0100
+
+    Associate Author and Post
+
+[33mcommit b1ec800defef27940ced33d1d5f1cfac1534afe4[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Mon Mar 8 22:39:42 2021 +0100
+
+    Associate Category And Post
+
+[33mcommit a0bbe6e0c35f62b1b8318acdd0a23a78efee6976[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Mon Mar 8 22:04:36 2021 +0100
+
+    Delete Category
+
+[33mcommit 18884674021a0d7257a498a218097f428af7e891[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Mon Mar 8 22:04:17 2021 +0100
+
+    Sort The Posts
+
+[33mcommit b131c88161be76177dbcb9845017b878118f6b9b[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Mon Mar 8 21:45:16 2021 +0100
+
+    Add Categories Dynamically To Admin Page
+
+[33mcommit fbaa7a47a708a2186c970e06681a3823473f0956[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Mon Mar 8 15:51:33 2021 +0100
+
+    Add Admin Page
+
+[33mcommit 87dd1a4f1735ef53d3719515e3a95636eb7914ed[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Mon Mar 8 10:54:11 2021 +0100
+
+    Edit Links
+
+[33mcommit 356a97e64f52e1f3df936f3f4509781061a482a3[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Mon Mar 8 10:31:15 2021 +0100
+
+    Add Flash Messages
+
+[33mcommit 15d1d9e08ddcbaa733c6c21e955f0e2a0d28f2a3[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Sun Mar 7 20:56:20 2021 +0100
+
+    Modify Css
+
+[33mcommit 98958976101663caa57ae4ec8cccd8d5917aeebc[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Sun Mar 7 20:42:09 2021 +0100
+
+    Add Sessions
+
+[33mcommit 3ce36a741098fc988278898acf06cfe5a66aa88e[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Sun Mar 7 16:39:58 2021 +0100
+
+    Create User Register and Login
+
+[33mcommit fba05f6fc09cef6194185edbb74cd2cae329278b[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Sun Mar 7 10:03:48 2021 +0100
+
+    Add Date Dynamically
+
+[33mcommit e85c923f1aa34386072d08278f071d03815f4727[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Sun Mar 7 09:27:47 2021 +0100
+
+    Add  Images To Blog Dynamically
+
+[33mcommit 421ee9e5d027c1305ba556b956913ca5a2691327[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Sun Mar 7 08:54:00 2021 +0100
+
+    Update Links
+
+[33mcommit a5c1a6168b127e188a9a6aebae547ba3c0a56147[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Sat Mar 6 15:30:07 2021 +0100
+
+    Upload Image of Post
+
+[33mcommit 8adc49fdd0f38d19ae228fb608dc08e83de5e5e3[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Sat Mar 6 10:45:10 2021 +0100
+
+    Add Post To Database
+
+[33mcommit 08511be94d55d9bafe2477f0fbfa1db0d4e0b6c8[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Fri Mar 5 20:10:36 2021 +0100
+
+    Update Styles Color
+
+[33mcommit 1a4ad1d3bd95f82e9bd297f723a67474c1e0e57d[m
+Author: sakir tufan <sakirtufan49@gmail.com>
+Date:   Fri Mar 5 14:05:03 2021 +0100
+
+    Create Static Add Post
