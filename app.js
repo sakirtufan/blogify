@@ -11,6 +11,7 @@ const {
 const fileUpload = require("express-fileupload");
 const generateDate = require("./helpers/date/generateDate").generateDate;
 const limit = require("./helpers/limit").limit;
+const truncate = require("./helpers/truncate").truncate;
 const expressSession = require("express-session");
 const connectMongo = require("connect-mongo");
 const methodOverride = require('method-override')
@@ -49,7 +50,7 @@ app.engine(
   "handlebars",
   exphbs({
     handlebars: allowInsecurePrototypeAccess(Handlebars),
-    helpers: { generateDate: generateDate, limit: limit},
+    helpers: { generateDate: generateDate, limit: limit, truncate: truncate},
   }),
   exphbs()
   );
