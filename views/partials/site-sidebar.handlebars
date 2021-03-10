@@ -33,20 +33,19 @@
       Latest Posts
     </h3>
     <!-- single post -->
-
     {{#each (limit posts 3)}}
-    <div class="widget-post">
-      <a href="#">
-        <img class="img-fluid" src="{{post_image}}" alt="" />
-        {{title}}
-      </a>
-      <ul class="blog-meta">
-        <li>
-          {{generateDate date "MMM DD YYYY"}}
-        </li>
-      </ul>
-    </div>
-    <!-- /single post -->
+      <div class="widget-post">
+        <a href="#">
+          <img class="img-fluid" src="{{post_image}}" alt="" />
+          {{title}}
+        </a>
+        <ul class="blog-meta">
+          <li>
+            {{generateDate date "MMM DD YYYY"}}
+          </li>
+        </ul>
+      </div>
+      <!-- /single post -->
     {{/each}}
   </div>
   <!-- /Posts sidebar -->
