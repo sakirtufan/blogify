@@ -32,12 +32,6 @@ app.use(
   })
 );
 
-// Flash Messages Middleware
-app.use((req, res, next) => {
-  res.locals.sessionFlash = req.session.sessionFlash;
-  delete req.session.sessionFlash;
-  next();
-});
 
 const port = process.env.PORT;
 const hostname = process.env.HOSTNAME;
@@ -50,15 +44,7 @@ app.use(fileUpload());
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'))
 
-// handlebars helpers
 
-// const hbs = exphbs.create({
-//   helpers: { 
-//     generateDate:generateDate,
-//     limit: limit,
-//   }
-
-// })
 app.engine(
   "handlebars",
   exphbs({
@@ -66,31 +52,38 @@ app.engine(
     helpers: { generateDate: generateDate, limit: limit},
   }),
   exphbs()
-);
-
-app.set("view engine", "handlebars");
-
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
-
-// parse application/json
-app.use(bodyParser.json());
-
-// Display Link Middleware
-app.use((req, res, next) => {
-  const { userId } = req.session;
-  if (userId) {
-    res.locals = {
-      displayLink: true,
-    };
-  } else {
-    res.locals = {
-      displayLink: false,
-    };
-  }
-  next();
-});
-
+  );
+  
+  app.set("view engine", "handlebars");
+  
+  // parse application/x-www-form-urlencoded
+  app.use(bodyParser.urlencoded({ extended: false }));
+  
+  // parse application/json
+  app.use(bodyParser.json());
+  
+  // Display Link Middleware
+  app.use((req, res, next) => {
+    const { userId } = req.session;
+    if (userId) {
+      res.locals = {
+        displayLink: true,
+      };
+    } else {
+      res.locals = {
+        displayLink: false,
+      };
+    }
+    next();
+  });
+  
+  // Flash Messages Middleware
+  app.use((req, res, next) => {
+    res.locals.sessionFlash = req.session.sessionFlash;
+    delete req.session.sessionFlash;
+    next();
+  });
+  
 // Routers Middleware
 const main = require("./routes/main");
 const posts = require("./routes/posts");
